@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SecureQRFields
+namespace SecureQRFields.Views
 {
-    public partial class Form1 : Form
+    public partial class QRPreviewForm : Form
     {
-        public Form1()
+        public QRPreviewForm()
         {
             InitializeComponent();
         }
