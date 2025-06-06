@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using QRCoder;
+using System.Drawing;
 
 namespace SecureQRFields.Services
 {
-    internal class QRService
+    public static class QRService
     {
+        public static Bitmap GenerarQRDesdeTexto(string contenido)
+        {
+            using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
+            {
+                QRCodeData qrData = qrGenerator.CreateQrCode(contenido, QRCodeGenerator.ECCLevel.Q);
+                using (QRCode qrCode = new QRCode(qrData))
+                {
+                    return qrCode.GetGraphic(5); // 5 = resolución
+                }
+            }
+        }
     }
 }
